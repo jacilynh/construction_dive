@@ -1,36 +1,23 @@
-
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "construction_dive_tech/version"
 
-Gem::Specification.new do |spec|
-  spec.name          = "construction_dive_tech"
-  spec.version       = ConstructionDiveTech::VERSION
-  spec.authors       = ["jacilynh"]
-  spec.email         = ["jacihayden@gmail.com"]
-
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
-
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
-
-  spec.add_development_dependency "bundler", "~> 1.16.a"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
+Gem::Specification.new do |s|
+  s.name          = 'construction_dive_tech'
+  s.version       = ConstructionDiveTech::VERSION
+  s.authors       = ['Jacilyn Hayden']
+  s.email         = ["jacihayden@gmail.com"]
+  s.platform      = Gem::Platform::RUBY
+  s.required_rubygems_version = '>= 2.6.12'
+  s.files = `git ls-files`.split("\n")
+  s.test_files = `git ls-files -- spec/*`.split("\n")
+  s.require_paths = ['lib']
+  s.summary       = "CLI gem for accessing ConstructionDive Technology news"
+  s.description   = "ConstructionDive/Technology is a media site (https://www.constructiondive.com/topic/technology/) which posts articles on current U.S. construction-related technology news. "
+  s.homepage      = "https://github.com/jacilynh/construction_dive_tech"
+  s.license       = "MIT"
+  s.executables << 'construction_dive_tech'
+  s.add_development_dependency "bundler", "~> 1.16.a"
+  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency "rspec", "~> 3.0"
 end
